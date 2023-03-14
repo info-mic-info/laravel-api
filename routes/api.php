@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Api\PostController as PostController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,6 +22,8 @@ return response()->json([
     'state' => 'USA'
 ]);
 });
+
+Route::get('/posts', [PostController::class, 'index']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
